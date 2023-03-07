@@ -15,6 +15,6 @@ defineProps({
 
 <style lang="postcss" scoped>
 .in-container {
-  @apply w-full h-full box-border overflow-x-hidden p-[var(--in-common-padding)] shadow-sm bg-[var(--in-bg-color)];
+  @apply w-full h-full box-border overflow-x-hidden shadow-sm bg-[var(--in-bg-color)];
 }
 </style>

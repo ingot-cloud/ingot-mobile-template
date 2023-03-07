@@ -1,29 +1,29 @@
 <template>
-  <router-view v-slot="{ Component }">
-    <keep-alive :include="cacheNames">
-      <component :is="Component" />
-    </keep-alive>
-  </router-view>
+  <div class="layout">
+    <div class="main">
+      <router-view v-slot="{ Component }">
+        <keep-alive :include="cacheNames">
+          <component :is="Component" />
+        </keep-alive>
+      </router-view>
+    </div>
+
+    <in-tabbar :tabs="tabs" v-model="current" />
+  </div>
 </template>
 <script lang="ts" setup>
 import { useRouterStore } from "@/stores/modules/router";
+import { useTabbarStore } from "@/stores/modules/tabbar";
 const { cacheNames } = storeToRefs(useRouterStore());
+const { tabs, current } = storeToRefs(useTabbarStore());
 </script>
 <style lang="postcss" scoped>
-.el-aside {
-  @apply overflow-inherit box-border w-auto\! bg-[var(--in-menu-bg-color)] b-r b-r-[var(--in-menu-bg-color)] dark:b-r-[var(--in-border-color)];
-}
+.layout {
+  --van-tabbar-height: 50px;
+  height: calc(100vh - var(--van-tabbar-height));
 
-.el-header {
-  --el-header-padding: var(--in-app-bar-padding);
-  --el-header-height: var(--in-app-bar-height);
-  @apply flex items-center justify-between box-border dark:bg-[var(--in-bg-color)] b-b b-b-[var(--in-border-color)];
-}
-
-.el-main {
-  @apply bg-[var(--in-bg-color-page)] box-border p-[var(--in-common-padding)] overflow-x-hidden;
-  &::-webkit-scrollbar {
-    @apply bg-[var(--in-bg-color-page)];
+  & .main {
+    height: 100%;
   }
 }
 </style>
