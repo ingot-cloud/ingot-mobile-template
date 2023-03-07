@@ -1,4 +1,4 @@
-# ingot-mobile-template
+# ingot-web-mobile-template
 
 ### 技术栈
   * [vue3](https://github.com/vuejs/core)
