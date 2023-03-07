@@ -1,5 +1,4 @@
 import type { AppStore } from "../types";
-import type { ComponentSize } from "@/components/cmp-size/types";
 
 /**
  * 全局配置
@@ -33,32 +32,12 @@ export const useAppStore = defineStore("app", () => {
 export const useAppStateStore = defineStore(
   "app.state",
   () => {
-    const menuOpenStatus = ref(false);
-    const componentSize = ref<ComponentSize>("default");
-
-    const getMenuOpened = computed(() => {
-      return menuOpenStatus.value;
-    });
-
-    const toggleMenu = () => {
-      menuOpenStatus.value = !menuOpenStatus.value;
-    };
-    const changeComponentSize = (size: ComponentSize) => {
-      componentSize.value = size;
-    };
-
-    return {
-      menuOpenStatus,
-      componentSize,
-      getMenuOpened,
-      toggleMenu,
-      changeComponentSize,
-    };
+    return {};
   },
   {
     persist: {
       storage: localStorage,
-      paths: ["menuOpenStatus", "componentSize"],
+      paths: [],
     },
   }
 );

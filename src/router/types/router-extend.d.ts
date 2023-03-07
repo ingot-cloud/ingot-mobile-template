@@ -8,25 +8,9 @@ declare module "vue-router" {
      */
     title?: string;
     /**
-     * icon
-     */
-    icon?: string;
-    /**
      * 是否放行，即忽略身份验证
      */
     permitAuth?: boolean;
-    /**
-     * 是否隐藏菜单
-     */
-    hideMenu?: boolean;
-    /**
-     * 隐藏面包屑
-     */
-    hideBreadcrumb?: boolean;
-    /**
-     * 是否为固钉
-     */
-    isAffix?: boolean;
   }
 
   interface _RouteLocationBase {

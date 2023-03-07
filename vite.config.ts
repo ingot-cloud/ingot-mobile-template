@@ -11,7 +11,7 @@ import Icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
 import { FileSystemIconLoader } from "unplugin-icons/loaders";
 import Unocss from "unocss/vite";
-import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
+import { VantResolver } from "unplugin-vue-components/resolvers";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import path from "path";
 
@@ -43,14 +43,14 @@ export default defineConfig(({ mode, command, ssrBuild }) => {
         dirs: ["./src/composables/**"],
         dts: "./auto-imports.d.ts",
         vueTemplate: true,
-        resolvers: [ElementPlusResolver()],
+        resolvers: [],
       }),
       // https://github.com/antfu/vite-plugin-components
       Components({
         dts: "./components.d.ts",
         dirs: ["./src/components", "./src/layouts"],
         resolvers: [
-          ElementPlusResolver(),
+          VantResolver(),
           IconsResolver({
             customCollections: ["ingot"],
           }),

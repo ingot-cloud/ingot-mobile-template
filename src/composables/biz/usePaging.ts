@@ -4,7 +4,7 @@ import {
   getCommonStatusActionDesc,
   getCommonStatusToggle,
 } from "@/models/enums";
-import { Confirm, Message } from "@/utils/message";
+import { showSuccessToast, showConfirmDialog } from "vant/es";
 
 /**
  * 分页接口
@@ -132,9 +132,9 @@ export const useConfirmDelete = (
   callback?: ActionCallbackFn
 ) => {
   const exec = (id: string, message: string) => {
-    Confirm.warning(message).then(() => {
+    showConfirmDialog({ title: "提示", message }).then(() => {
       deleteRecord(id).then(() => {
-        Message.success("操作成功");
+        showSuccessToast("操作成功");
         if (callback) {
           callback();
         }
@@ -155,9 +155,9 @@ export const useConfirmUpdate = <Record>(
   callback?: ActionCallbackFn
 ) => {
   const exec = (params: Record, message: string) => {
-    Confirm.warning(message).then(() => {
+    showConfirmDialog({ title: "提示", message }).then(() => {
       updateRecord(params).then(() => {
-        Message.success("操作成功");
+        showSuccessToast("操作成功");
         if (callback) {
           callback();
         }
@@ -183,13 +183,14 @@ export const useConfirmStatus = (
   callback?: ActionCallbackFn
 ) => {
   const exec = (id: string, status: CommonStatus, opsTragetText: string) => {
-    Confirm.warning(
-      `是否${getCommonStatusActionDesc(
+    showConfirmDialog({
+      title: "提示",
+      message: `是否${getCommonStatusActionDesc(
         getCommonStatusToggle(status)
-      )}${opsTragetText}`
-    ).then(() => {
+      )}${opsTragetText}`,
+    }).then(() => {
       updateRecord({ id, status: getCommonStatusToggle(status) }).then(() => {
-        Message.success("操作成功");
+        showSuccessToast("操作成功");
         if (callback) {
           callback();
         }

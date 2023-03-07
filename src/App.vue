@@ -1,18 +1,6 @@
 <template>
-  <el-config-provider
-    :button="buttonConfig"
-    :size="componentSize"
-    :locale="zhCn"
-  >
+  <van-config-provider>
     <router-view />
-  </el-config-provider>
+  </van-config-provider>
 </template>
-<script lang="ts" setup>
-import { useAppStateStore } from "@/stores/modules/app";
-import zhCn from "element-plus/lib/locale/lang/zh-cn";
-
-const { componentSize } = storeToRefs(useAppStateStore());
-const buttonConfig = reactive({
-  autoInsertSpace: false,
-});
-</script>
+<script lang="ts" setup></script>

@@ -5,7 +5,6 @@ import {
   RevokeTokenAPI,
 } from "@/api/common/auth";
 import { UserInfoAPI } from "@/api/common/user";
-import type { MenuTreeNode } from "@/models";
 /**
  * 授权信息
  */
@@ -155,44 +154,13 @@ export const useUserInfoStore = defineStore("security.user", () => {
 
 export const usePermissions = defineStore("security.permissions", () => {
   const roles = ref<Array<string>>([]);
-  const authorities = ref<Array<string>>([]);
 
   const updateRoles = (params: Array<string>) => {
     roles.value = params;
   };
 
-  const updateAuthorities = (menus: Array<MenuTreeNode>) => {
-    const permissions: Array<string> = [];
-    menus.forEach((item) => {
-      if (item.authorityCode) {
-        permissions.push(item.authorityCode);
-      }
-      if (item.children?.length) {
-        extractPermissionsItem(permissions, item);
-      }
-    });
-
-    authorities.value = permissions;
-  };
-
   return {
     roles,
-    authorities,
     updateRoles,
-    updateAuthorities,
   };
 });
-
-const extractPermissionsItem = (
-  permissions: Array<string>,
-  menu: MenuTreeNode
-) => {
-  menu.children?.forEach((item) => {
-    if (item.authorityCode) {
-      permissions.push(item.authorityCode);
-    }
-    if (item.children?.length) {
-      extractPermissionsItem(permissions, item);
-    }
-  });
-};

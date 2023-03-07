@@ -110,6 +110,7 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TenantOptions: typeof import('./src/components/biz/tenant-options/TenantOptions.vue')['default']
+    VanConfigProvider: typeof import('vant/es')['ConfigProvider']
   }
   export interface ComponentCustomProperties {
     vLoading: typeof import('element-plus/es')['ElLoadingDirective']

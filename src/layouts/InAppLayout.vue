@@ -1,25 +1,9 @@
 <template>
-  <el-container w-full h-full>
-    <el-aside>
-      <in-menu />
-    </el-aside>
-
-    <el-container>
-      <el-header>
-        <in-app-bar />
-      </el-header>
-
-      <in-tabs />
-
-      <el-main>
-        <router-view v-slot="{ Component }">
-          <keep-alive :include="cacheNames">
-            <component :is="Component" />
-          </keep-alive>
-        </router-view>
-      </el-main>
-    </el-container>
-  </el-container>
+  <router-view v-slot="{ Component }">
+    <keep-alive :include="cacheNames">
+      <component :is="Component" />
+    </keep-alive>
+  </router-view>
 </template>
 <script lang="ts" setup>
 import { useRouterStore } from "@/stores/modules/router";

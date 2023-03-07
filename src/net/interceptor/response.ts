@@ -1,11 +1,11 @@
 import type { AxiosResponse, AxiosError, AxiosRequestConfig } from "axios";
-import { Message, Confirm } from "@/utils/message";
 import type { R } from "@/models/net";
 import { StatusCode } from "@/net/status-code";
 import { useAuthStore } from "@/stores/modules/auth";
 import Http from "@/net";
 import { logoutAndReload } from "@/utils/security";
 import { isString } from "@/utils";
+import { showConfirmDialog, showFailToast } from "vant/es";
 
 /**
  * 未知响应实体
@@ -70,13 +70,15 @@ const bizResponseFailureHandler = (
             resolve(temp);
           })
           .catch(() => {
-            Message.warning("令牌失效", { showClose: true });
+            showFailToast("令牌失效");
             // 刷新失败退出登录
             logoutAndReload();
           });
       });
     case StatusCode.TokenSignBack:
-      Confirm.warning("您已被签退，可以取消继续留在该页面，或者重新登录", {
+      showConfirmDialog({
+        title: "提示",
+        message: "您已被签退，可以取消继续留在该页面，或者重新登录",
         confirmButtonText: "重新登录",
         cancelButtonText: "取消",
       }).then(() => {
@@ -84,7 +86,7 @@ const bizResponseFailureHandler = (
       });
       break;
     default:
-      Message.warning(response.message, { showClose: true });
+      showFailToast(response.message);
       break;
   }
   return Promise.reject(response);

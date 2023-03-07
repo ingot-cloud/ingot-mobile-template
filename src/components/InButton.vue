@@ -1,11 +1,9 @@
 <template>
-  <el-button @click="privateOnClick">
-    <span v-if="slots.icon"> <slot name="icon"> </slot> </span>
+  <van-button @click="privateOnClick">
     <slot></slot>
-  </el-button>
+  </van-button>
 </template>
 <script lang="ts" setup>
-const slots = useSlots();
 const emits = defineEmits(["in-click"]);
 const triggerClick = useThrottleFn((e: MouseEvent) => {
   emits("in-click", e);
