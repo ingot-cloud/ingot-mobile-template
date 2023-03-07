@@ -1,6 +1,9 @@
 :root {
   --in-common-margin: 12px;
   --in-common-padding: 12px;
+
+  --in-tabbar-height: 50px;
+  --in-nav-bar-height: 46px;
 }
 
 :root {

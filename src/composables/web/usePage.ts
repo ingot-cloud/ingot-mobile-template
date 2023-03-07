@@ -9,3 +9,8 @@ export function useGo(router?: Router) {
     isReplace ? replace(opt) : push(opt);
   };
 }
+
+export function useRouterBack(router?: Router) {
+  const { back } = router || useRouter();
+  return { back };
+}

@@ -1,10 +1,10 @@
 <template>
-  <in-container>
+  <in-nav-container>
     首页
     <div>{{ getUsername }}</div>
     <div>{{ getRoles }}</div>
     <div>{{ getUserInfoWhetherExist }}</div>
-  </in-container>
+  </in-nav-container>
 </template>
 
 <script lang="ts" setup>

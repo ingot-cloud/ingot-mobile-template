@@ -93,6 +93,7 @@ declare module '@vue/runtime-core' {
     InIconCollection: typeof import('./src/components/InIconCollection.vue')['default']
     InMenu: typeof import('./src/layouts/widgets/InMenu.vue')['default']
     InMenuToggle: typeof import('./src/layouts/widgets/InMenuToggle.vue')['default']
+    InNavContainer: typeof import('./src/components/container/InNavContainer.vue')['default']
     InPageHeader: typeof import('./src/components/InPageHeader.vue')['default']
     InRefreshIcon: typeof import('./src/components/icons/InRefreshIcon.vue')['default']
     InRouterViewLayout: typeof import('./src/layouts/InRouterViewLayout.vue')['default']
@@ -101,6 +102,7 @@ declare module '@vue/runtime-core' {
     InSpacer: typeof import('./src/components/InSpacer.vue')['default']
     InSubmenu: typeof import('./src/layouts/widgets/InSubmenu.vue')['default']
     InSwitchDark: typeof import('./src/components/InSwitchDark.vue')['default']
+    InTabbar: typeof import('./src/layouts/widgets/tabbar/InTabbar.vue')['default']
     InTable: typeof import('./src/components/table/InTable.vue')['default']
     InTabs: typeof import('./src/components/InTabs.vue')['default']
     InTag: typeof import('./src/components/biz/InTag.vue')['default']
@@ -111,6 +113,9 @@ declare module '@vue/runtime-core' {
     RouterView: typeof import('vue-router')['RouterView']
     TenantOptions: typeof import('./src/components/biz/tenant-options/TenantOptions.vue')['default']
     VanConfigProvider: typeof import('vant/es')['ConfigProvider']
+    VanNavBar: typeof import('vant/es')['NavBar']
+    VanTabbar: typeof import('vant/es')['Tabbar']
+    VanTabbarItem: typeof import('vant/es')['TabbarItem']
   }
   export interface ComponentCustomProperties {
     vLoading: typeof import('element-plus/es')['ElLoadingDirective']

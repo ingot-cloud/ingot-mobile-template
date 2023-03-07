@@ -19,7 +19,7 @@ const { tabs, current } = storeToRefs(useTabbarStore());
 </script>
 <style lang="postcss" scoped>
 .layout {
-  --van-tabbar-height: 50px;
+  --van-tabbar-height: var(--in-tabbar-height);
   height: calc(100vh - var(--van-tabbar-height));
 
   & .main {

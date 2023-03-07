@@ -6,10 +6,12 @@ html, body, #app {
 }
 
 ::-webkit-scrollbar {
-  @apply w-1.5 h-1.5;
+  /* @apply w-1.5 h-1.5; */
+  display: none;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply b-rd-6;
-  background-color: var(--in-color-info-light-5);
+  /* @apply b-rd-6;
+  background-color: var(--in-color-info-light-5); */
+  display: none;
 }
